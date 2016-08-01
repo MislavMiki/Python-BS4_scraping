@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+from bs4 import BeautifulSoup
+import re
+import urllib2
+
+url = ''
+page = urllib2.urlopen(url)
+soup = BeautifulSoup(page)
+
+naslovihttps://koha.ffzg.hr/cgi-bin/koha/opac-search.pl?idx=ti&q=analiza = soup.find_all('a', class_='title')
+
+txtfile = open('/home/mislav/Desktop/output.txt', 'w')
+
+for naslov in naslovi:
+	txtfile.write(naslov.text)
+
